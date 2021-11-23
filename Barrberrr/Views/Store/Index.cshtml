@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Barrberrr.Models.Genre>
+ 
+@{
+    ViewBag.Title = "Store";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+<h3>Browse Brands</h3>
+<p>
+    select from @Model.Count() genres:
+</p>
+<ul>
+    @foreach (var genre in Model)
+    {
+        <li>
+            @Html.ActionLink(genre.Name, "Browse", new { genre = genre.Name })
+        </li>
+    }
+</ul>

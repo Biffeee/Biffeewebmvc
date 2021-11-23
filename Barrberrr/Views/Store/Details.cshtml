@@ -1,0 +1,23 @@
+﻿@model Barrberrr.Models.Product
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+<h2>@Model.Title</h2>
+<p>
+    <img alt="@Model.Title" src="@Model.ProductArtUrl" />
+</p>
+<div id="product-details">
+    <p>
+        <em>Genre:</em>@Model.Genre.Name
+    </p>
+    <p>
+        <em>Brand:</em> @Model.Brand.Name
+    </p>
+    <p>
+        <em>Price:</em> @String.Format("{0:F}", Model.Price)
+    </p>
+    <p class="button">
+        @Html.ActionLink("Add to Cart", "AddToCart", "ShoppingCart", new { id = Model.ProductId }, "")
+    </p>
+</div>
